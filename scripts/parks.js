@@ -57,11 +57,34 @@ function locationSearch() {
     let selectElement = document.getElementById("location")
     selectElement.innerHTML = html
 
-    // park will match location based on the park's "State Property"
+   
 }
 
 function renderLocationResults(event){
-    console.log(event)
+     // park will match location based on the park's "State Property"
+    const chosenLocation = event.target.value
+    let html = ""
+    for (let index = 0; index < nationalParksArray.length ; index += 1){
+        let nationalPark = nationalParksArray[index]
+        if (chosenLocation === nationalPark.State){
+            html += `
+            <div class="card" style="width: 18rem;">
+                <div class="card-body">
+                    <h5 class=" Location-name ">${nationalPark.LocationName}</h5>
+                    <p class="Address">"${nationalPark.Address}"</p>
+                    <p class="City">"${nationalPark.City}"</p>
+                    <p class="State">"${nationalPark.State}"</p>
+                    <p class="Phone">"${nationalPark.Phone}"</p>
+                    <p class="Fax">"${nationalPark.Fax}"</p>
+                    
+                </div>
+            </div>
+            `
+        }
+
+    }
+    let locationResultDiv = document.getElementById("locationResultDiv")
+    locationResultDiv.innerHTML= html
 
 }
 
