@@ -89,14 +89,45 @@ function renderLocationResults(event){
 }
 
 function parkTypeSearch() {
-    console.log("park type")
-    // runs if user chooses park type search option
-    // produces dropdown of park types 
-    // park will match description if park's "LocationName" propery CONTAINS the description
-    // will need to check if nationalPark LocationName contain parkTypeData name
+    let html = "<option>Choose a Park Type </option>"
+
+    for (let index = 0; index < parkTypesArray.length; index += 1){
+        let parkType = parkTypesArray[index]
+        html += `
+        <option value = "${parkType}">${parkType}</option>
+        `
+    }
+    let selectElement = document.getElementById("parkType")
+    selectElement.innerHTML=html
+
 }
 
 function renderParkTypeResults(event){
-    console.log(event)
+    const chosenParkType = event.target.value
+    let html = ""
+    for (let index = 0; index < nationalParksArray.length ; index += 1){
+        let nationalPark = nationalParksArray[index]
+        if (nationalPark.LocationName.includes(chosenParkType)){
+            html += `
+            <div class="card" style="width: 18rem;">
+                <div class="card-body">
+                    <h5 class=" Location-name ">${nationalPark.LocationName}</h5>
+                    <p class="Address">"${nationalPark.Address}"</p>
+                    <p class="City">"${nationalPark.City}"</p>
+                    <p class="State">"${nationalPark.State}"</p>
+                    <p class="Phone">"${nationalPark.Phone}"</p>
+                    <p class="Fax">"${nationalPark.Fax}"</p>
+                    
+                </div>
+            </div>
+            `
+        }
+
+    }
+    let parkTypeResultDiv = document.getElementById("parkTypeResultDiv")
+    parkTypeResultDiv.innerHTML= html
+
+
+    // will need to check if nationalPark LocationName contain parkTypeData name
 
 }
