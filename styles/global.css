@@ -1,5 +1,10 @@
-html{
-    box-sizing:border-box;
-    --bg-color:lightsalmon;
-    
+.navbar-brand{
+    color: white;
+}
+.nav-link,.nav-link-active {
+    color: white;
+}
+
+#nav-color{
+    background-color:#886343d1
 }

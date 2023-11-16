@@ -1,0 +1,16 @@
+body{
+    background-image: url(/myImages/indexBackroung.jpg);
+    color:white ;
+    text-align: center;
+}
+
+a{
+    color: white;
+}
+
+h2,h4{
+    color: #886343;
+    font-weight: bolder;
+    text-shadow:  2px 2px 5px black
+}
+

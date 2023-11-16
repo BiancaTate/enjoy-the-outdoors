@@ -21,7 +21,7 @@
 
 <body>
   <header>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <nav class="navbar navbar-expand-lg navbar-light" style="background-color:#886343d1">
       <div class="container-fluid">
         <a class="navbar-brand" href="/index.html">Website Name</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
@@ -30,7 +30,7 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
           <div class="navbar-nav">
-            <a class="nav-link active" aria-current="page" href="/index.html">Home</a>
+            <a class="nav-link-active" aria-current="page" href="/index.html">Home</a>
             <a class="nav-link" href="/mountains.html">Mountains</a>
             <a class="nav-link" href="/parks.html">Parks</a>
           </div>
@@ -39,26 +39,42 @@
     </nav>
   </header>
   <main>
+    <div id=""><br><br><br></div>
+
     <h2>Welcome to *INSERT NAME*</h2>
     <!-- Maybe make the backround of the homepage, a picture of a mountain//park -->
     <!-- image will slowly appear when page is loaded  -->
     <p>Our goal is to encourage as many people as possible to explore and enjoy the great outdoors. </p>
-    <!-- <p>Find a list of fun facts about the benefits of spending time outoors</p> -->
-    <p>Please use the links below to find your new desintation!</p>
-    <a class="parks-search" href="/parks.html">National Parks Search</a>
-    <a class="mountain-search" href="/mountains.html">Mountains Information</a>
-    <br>
-    <br>
-    <p></p>
+    <section id="health-benefits">
+    <h4>Health Benifits of Being Outdoors!</h4>
 
-    <div class=indexImages>
-      <img src="..." alt="Picture of Park ">
-      <img src="..." alt="Picture of Mountain">
+    <div id="ul">
+      <li>Better breathing</li>
+      <li>Improved sleep</li>
+      <li>Reduced depression symptoms</li>
+      <li>More motivation to exercise</li>
+      <li>Mental restoration</li>
+      <li>Boosted immune function</li>
+      <li>Etc.</li>
+      <a href="https://www.healthline.com/health/health-benefits-of-being-outdoors" target="_blank" >(Visit Healthline to learn more)</a>
     </div>
+  </section>
+    <section id="page-links">
+      <br><br>
+      <h4 >Please use the links below to find your new desintation!</h4>
+      <a class="parks-search" href="/parks.html">National Parks Search</a>
+      <a class="mountain-search" href="/mountains.html">Mountains Information</a>
+      <br>
+      <br>
+      <p></p>
+    </section>
+
   </main>
   <footer>
 
   </footer>
 </body>
+
+<!-- would like to fade in backround image followed by navbar and text content -->
 
 </html>
