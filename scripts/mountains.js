@@ -41,13 +41,6 @@ function renderMountainInfo(event) {
         if (chosenMountain === mountainOption.name) {
             
 
-            /* 
-            image(how to include image in card?)
-            mountain name 
-            description
-            elevation
-             */
-
             html += `
             <p></p>
             <div class="container">
