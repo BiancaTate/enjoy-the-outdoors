@@ -1,5 +1,5 @@
 "use strict"
-const searchChoices = ["Location", "Park Type"]
+const searchChoices = ["Location", "Park Type","View All National Parks"]
 
 window.onload = function (_event) {
 
@@ -11,6 +11,9 @@ window.onload = function (_event) {
 
     const parkType = document.getElementById("parkType")
     parkType.onchange = renderParkTypeResults
+
+    // const viewAll = document.getElementById("viewAllResultDiv")
+    // viewAll.onchange= viewAllSearchResults
 
     chooseSearchOption(searchChoices, searchTypeSelect)
 
@@ -40,6 +43,9 @@ function handleSearchOption(event) {
     }
     else if (locationOrPark === searchChoices[1]) {
         parkTypeSearch()
+    }
+    else if (locationOrPark === searchChoices[2]){
+        viewAllSearchResults()
     }
 
 }
@@ -79,6 +85,7 @@ function renderLocationResults(event) {
                     <p class="State"><span style="font-weight: bold">State:</span>"${nationalPark.State}"</p>
                     <p class="Phone"><span style="font-weight: bold">Phone:</span>"${nationalPark.Phone}"</p>
                     <p class="Fax"><span style="font-weight: bold">Fax:</span>"${nationalPark.Fax}"</p>
+                    <a href="${nationalPark.Visit}" target="_blank">Visit</a>
                     
                 </div>
             </div>
@@ -142,10 +149,44 @@ function renderParkTypeResults(event) {
     } let parkTypeResultDiv = document.getElementById("parkTypeResultDiv")
     parkTypeResultDiv.innerHTML = html
 
+    
+}
 
+function viewAllSearchResults(){
+    
+    let html = " "
+    
+    for (let index = 0; index < nationalParksArray.length; index += 1) {
+        let nationalPark= nationalParksArray[index]
+    
+        html += `
+        <p></p>
+            <div class="container">
+                <div class="card border border-black border-4">
+                    <div class="card-body" >
+                        <h5 class=" Location-name "><span style="font-weight: bold"></span>${nationalPark.LocationName}</h5>
+                        <p class="Address"><span style="font-weight: bold">Address:</span>"${nationalPark.Address}"</p>
+                        <p class="City"><span style="font-weight: bold">City:</span>"${nationalPark.City}"</p>
+                        <p class="State"><span style="font-weight: bold">State:</span>"${nationalPark.State}"</p>
+                        <p class="Phone"><span style="font-weight: bold">Phone:</span>"${nationalPark.Phone}"</p>
+                        <p class="Fax"><span style="font-weight: bold">Fax:</span>"${nationalPark.Fax}"</p>
+                        <a href="${nationalPark.Visit}" target="_blank">Visit</a>
+                        
+                    </div>
+                </div>
+            </div>       
+        `
+    }
+    
+    let viewAllResultDiv = document.getElementById("viewAllResultDiv")
+    // viewAllResultDiv.classList.remove("d-none")
+    viewAllResultDiv.innerHTML = html
+    
 }
 
 
-
-// will need to check if nationalPark LocationName contain parkTypeData name
-
+            
+            
+            
+            
+            
