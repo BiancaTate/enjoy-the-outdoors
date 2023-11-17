@@ -5,11 +5,18 @@
     color: white;
 }
 
-#nav-color{
+/* #nav-color{
     background-color:#886343d1
-}
+} */
 h2{
     color: #886343d1;
-    text-shadow: 2px 2px black;
+    text-shadow: 2px 2px  black;
     font-weight: bolder;
+ 
+}
+main{
+    text-align: center;
+}
+nav{
+    background-color:#886343d1
 }

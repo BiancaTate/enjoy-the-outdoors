@@ -39,7 +39,7 @@ function renderMountainInfo(event) {
         const mountainOption = mountainsArray[index]
 
         if (chosenMountain === mountainOption.name) {
-            console.log("hello")
+            
 
             /* 
             image(how to include image in card?)
@@ -49,11 +49,15 @@ function renderMountainInfo(event) {
              */
 
             html += `
-            <div class="card" style="width: 18rem;">
-                <div class="card-body">
-                    <h5 class=" mountain-name ">${mountainOption.name}</h5>
-                    <p class="description">"${mountainOption.desc}"</p>
-                    <p class="elevation">"${mountainOption.elevation}"</p>
+            <p></p>
+            <div class="container">
+                <div class="card border border-black border-3">
+                    <div class="card-body">
+                        <h5 class=" mountain-name ">${mountainOption.name}</h5>
+                        <p class="description"><span style="font-weight: bold">About this Mountain:</span>"${mountainOption.desc}"</p>
+                        <p class="elevation"><span style="font-weight: bold">Elevation:</span>" ${mountainOption.elevation}"</p>
+                        <p class="elevation"><span style="font-weight: bold">Effort:</span>" ${mountainOption.effort}"</p>
+                    </div>
                 </div>
             </div>
               

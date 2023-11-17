@@ -1,3 +1,5 @@
 body{
-    background-image: url(/myImages/mountainSide.jpg);
+    background-image: url(/myImages/topOfMountain.jpg);
+    background-repeat: no-repeat;
+  
 }

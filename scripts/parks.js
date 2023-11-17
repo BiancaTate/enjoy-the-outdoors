@@ -13,7 +13,7 @@ window.onload = function (_event) {
     parkType.onchange = renderParkTypeResults
 
     chooseSearchOption(searchChoices, searchTypeSelect)
-    
+
 
 }
 
@@ -35,64 +35,67 @@ function chooseSearchOption(searchChoices, selectElement) {
 function handleSearchOption(event) {
     const locationOrPark = event.target.value
 
-    if (locationOrPark === searchChoices[0]){
+    if (locationOrPark === searchChoices[0]) {
         locationSearch()
     }
-    else if (locationOrPark === searchChoices[1]){
+    else if (locationOrPark === searchChoices[1]) {
         parkTypeSearch()
     }
 
 }
 
 function locationSearch() {
-    let html= "<option> Choose A Location </option>"
-    
-    for (let index = 0; index < locationsArray.length ; index += 1){
+    let html = "<option> Choose A Location </option>"
+
+    for (let index = 0; index < locationsArray.length; index += 1) {
         const location = locationsArray[index]
         html += `
         <option value = "${location}"> ${location} </option>        
         `
-    } 
+    }
 
     let selectElement = document.getElementById("location")
     selectElement.classList.remove("d-none")
     selectElement.innerHTML = html
 
-   
+
 }
 
-function renderLocationResults(event){
-     // park will match location based on the park's "State Property"
+function renderLocationResults(event) {
+    // park will match location based on the park's "State Property"
     const chosenLocation = event.target.value
     let html = ""
-    for (let index = 0; index < nationalParksArray.length ; index += 1){
+    for (let index = 0; index < nationalParksArray.length; index += 1) {
         let nationalPark = nationalParksArray[index]
-        if (chosenLocation === nationalPark.State){
+        if (chosenLocation === nationalPark.State) {
             html += `
-            <div class="card" style="width: 18rem;">
-                <div class="card-body">
-                    <h5 class=" Location-name ">${nationalPark.LocationName}</h5>
-                    <p class="Address">"${nationalPark.Address}"</p>
-                    <p class="City">"${nationalPark.City}"</p>
-                    <p class="State">"${nationalPark.State}"</p>
-                    <p class="Phone">"${nationalPark.Phone}"</p>
-                    <p class="Fax">"${nationalPark.Fax}"</p>
+            <p></p>
+            <div class="container">
+            <div class="card border border-black border-4">
+                <div class="card-body" >
+                    <h5 class=" Location-name "><span style="font-weight: bold"></span>${nationalPark.LocationName}</h5>
+                    <p class="Address"><span style="font-weight: bold">Address:</span>"${nationalPark.Address}"</p>
+                    <p class="City"><span style="font-weight: bold">City:</span>"${nationalPark.City}"</p>
+                    <p class="State"><span style="font-weight: bold">State:</span>"${nationalPark.State}"</p>
+                    <p class="Phone"><span style="font-weight: bold">Phone:</span>"${nationalPark.Phone}"</p>
+                    <p class="Fax"><span style="font-weight: bold">Fax:</span>"${nationalPark.Fax}"</p>
                     
                 </div>
+            </div>
             </div>
             `
         }
 
     }
     let locationResultDiv = document.getElementById("locationResultDiv")
-    locationResultDiv.innerHTML= html
+    locationResultDiv.innerHTML = html
 
 }
 
 function parkTypeSearch() {
     let html = "<option>Choose a Park Type </option>"
 
-    for (let index = 0; index < parkTypesArray.length; index += 1){
+    for (let index = 0; index < parkTypesArray.length; index += 1) {
         let parkType = parkTypesArray[index]
         html += `
         <option value = "${parkType}">${parkType}</option>
@@ -100,36 +103,49 @@ function parkTypeSearch() {
     }
     let selectElement = document.getElementById("parkType")
     selectElement.classList.remove("d-none")
-    selectElement.innerHTML=html
+    selectElement.innerHTML = html
 
 }
 
-function renderParkTypeResults(event){
+function renderParkTypeResults(event) {
     const chosenParkType = event.target.value
+    
     let html = ""
-    for (let index = 0; index < nationalParksArray.length ; index += 1){
+
+    for (let index = 0; index < nationalParksArray.length; index += 1) {
         let nationalPark = nationalParksArray[index]
-        if (nationalPark.LocationName.includes(chosenParkType)){
+        if (nationalPark.LocationName.includes(chosenParkType)) {
             html += `
-            <div class="card" style="width: 18rem;">
-                <div class="card-body">
-                    <h5 class=" Location-name ">${nationalPark.LocationName}</h5>
-                    <p class="Address">"${nationalPark.Address}"</p>
-                    <p class="City">"${nationalPark.City}"</p>
-                    <p class="State">"${nationalPark.State}"</p>
-                    <p class="Phone">"${nationalPark.Phone}"</p>
-                    <p class="Fax">"${nationalPark.Fax}"</p>
+            <p></p>
+            <div class="container">
+                <div class="card border border-black border-4" >
+                    <div class="card-body">
+                        <h5 class=" location-name "></span>${nationalPark.LocationName}</h5>
+                        <p class="address"><span style="font-weight: bold">Address:</span>"${nationalPark.Address}"</p>
+                        <p class="city"><span style="font-weight: bold">City:</span>"${nationalPark.City}"</p>
+                        <p class="state"><span style="font-weight: bold">State:</span>"${nationalPark.State}"</p>
+                        <p class="phone"><span style="font-weight: bold">Phone:</span>"${nationalPark.Phone}"</p>
+                        <p class="fax"><span style="font-weight: bold">Fax:</span>"${nationalPark.Fax}"</p>
+                        <div id= "visit" class ="visit">
+                        <a href="${nationalPark.Visit}" target="_blank">Visit</a>
+                        </div>
                     
+                    </div>
                 </div>
             </div>
-            `
-        }
+            `}
+        // if (nationalPark.Visit in nationalPark === false) {
+        //     const visitDiv = document.getElementById("visit")
+        //     visitDiv.classList.remove("visit")
+        // }
 
-    }
-    let parkTypeResultDiv = document.getElementById("parkTypeResultDiv")
-    parkTypeResultDiv.innerHTML= html
+    } let parkTypeResultDiv = document.getElementById("parkTypeResultDiv")
+    parkTypeResultDiv.innerHTML = html
 
-
-    // will need to check if nationalPark LocationName contain parkTypeData name
 
 }
+
+
+
+// will need to check if nationalPark LocationName contain parkTypeData name
+
