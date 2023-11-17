@@ -73,6 +73,10 @@ function renderLocationResults(event) {
     let html = ""
     for (let index = 0; index < nationalParksArray.length; index += 1) {
         let nationalPark = nationalParksArray[index]
+        let visitLink= ""
+        if (nationalPark.Visit !== undefined) {
+            visitLink = `<a href="${nationalPark.Visit}" target="_blank" style= "color:black; font-weight:bold">Visit Park Site!</a>`
+        }
         if (chosenLocation === nationalPark.State) {
             html += `
             <p></p>
@@ -85,7 +89,7 @@ function renderLocationResults(event) {
                     <p class="State"><span style="font-weight: bold">State:</span>"${nationalPark.State}"</p>
                     <p class="Phone"><span style="font-weight: bold">Phone:</span>"${nationalPark.Phone}"</p>
                     <p class="Fax"><span style="font-weight: bold">Fax:</span>"${nationalPark.Fax}"</p>
-                    <a href="${nationalPark.Visit}" target="_blank">Visit</a>
+                    ${visitLink}
                     
                 </div>
             </div>
@@ -121,6 +125,10 @@ function renderParkTypeResults(event) {
 
     for (let index = 0; index < nationalParksArray.length; index += 1) {
         let nationalPark = nationalParksArray[index]
+        let visitLink = ""
+        if (nationalPark.Visit !== undefined) {
+            visitLink = `<a href="${nationalPark.Visit}" target="_blank" style= "color:black; font-weight:bold">Visit Park Site!</a>`
+        }
         if (nationalPark.LocationName.includes(chosenParkType)) {
             html += `
             <p></p>
@@ -134,7 +142,7 @@ function renderParkTypeResults(event) {
                         <p class="phone"><span style="font-weight: bold">Phone:</span>"${nationalPark.Phone}"</p>
                         <p class="fax"><span style="font-weight: bold">Fax:</span>"${nationalPark.Fax}"</p>
                         <div id= "visit" class ="visit">
-                        <a href="${nationalPark.Visit}" target="_blank">Visit</a>
+                        ${visitLink}
                         </div>
                     
                     </div>
@@ -159,19 +167,23 @@ function viewAllSearchResults(){
     for (let index = 0; index < nationalParksArray.length; index += 1) {
         let nationalPark= nationalParksArray[index]
     
+        let visitLink = ""
+        if (nationalPark.Visit !== undefined) {
+            visitLink = `<a href="${nationalPark.Visit}" target="_blank" style= "color:black; font-weight:bold">Visit Park Site!</a>`
+        }
+
         html += `
-        <p></p>
+            <br>
             <div class="container">
                 <div class="card border border-black border-4">
-                    <div class="card-body" >
+                    <div class="card-body">
                         <h5 class=" Location-name "><span style="font-weight: bold"></span>${nationalPark.LocationName}</h5>
-                        <p class="Address"><span style="font-weight: bold">Address:</span>"${nationalPark.Address}"</p>
-                        <p class="City"><span style="font-weight: bold">City:</span>"${nationalPark.City}"</p>
-                        <p class="State"><span style="font-weight: bold">State:</span>"${nationalPark.State}"</p>
-                        <p class="Phone"><span style="font-weight: bold">Phone:</span>"${nationalPark.Phone}"</p>
-                        <p class="Fax"><span style="font-weight: bold">Fax:</span>"${nationalPark.Fax}"</p>
-                        <a href="${nationalPark.Visit}" target="_blank">Visit</a>
-                        
+                        <p class="Address"><span style="font-weight: bold">Address: </span>"${nationalPark.Address}"</p>
+                        <p class="City"><span style="font-weight: bold">City: </span>"${nationalPark.City}"</p>
+                        <p class="State"><span style="font-weight: bold">State: </span>"${nationalPark.State}"</p>
+                        <p class="Phone"><span style="font-weight: bold">Phone: </span>"${nationalPark.Phone}"</p>
+                        <p class="Fax"><span style="font-weight: bold">Fax: </span>"${nationalPark.Fax}"</p>
+                        ${visitLink}
                     </div>
                 </div>
             </div>       
