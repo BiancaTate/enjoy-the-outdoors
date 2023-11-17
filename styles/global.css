@@ -8,3 +8,8 @@
 #nav-color{
     background-color:#886343d1
 }
+h2{
+    color: #886343d1;
+    text-shadow: 2px 2px black;
+    font-weight: bolder;
+}

@@ -55,6 +55,7 @@ function locationSearch() {
     } 
 
     let selectElement = document.getElementById("location")
+    selectElement.classList.remove("d-none")
     selectElement.innerHTML = html
 
    
@@ -98,6 +99,7 @@ function parkTypeSearch() {
         `
     }
     let selectElement = document.getElementById("parkType")
+    selectElement.classList.remove("d-none")
     selectElement.innerHTML=html
 
 }
